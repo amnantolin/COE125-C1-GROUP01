@@ -1,0 +1,34 @@
+import getpass
+import csv
+ def login():
+...     username=[]
+...     password=[]
+...     name=[]
+...     value=True
+...     loop=True
+...     print("~~~LOG IN PAGE~~~")
+...     with open(r'''C:\Users\nicol\Desktop\file.txt''') as csv_file:
+...             csv_reader=csv.reader(csv_file, delimiter=',')
+...             for row in csv_reader:
+...                     username.append(row[0])
+...                     password.append(row[1])
+...                     name.append(row[2])
+...             while loop:
+...                     user=input("Username: ")
+...                     passw=getpass.getpass()
+...                     for i in range(len(username)):
+...                             if user==username[i]:
+...                                     value=False
+...                                     if passw==password[i]:
+...                                              print("Welcome " + name[i])
+...                                              print("Your username is " + username[i])
+...                                              print("Your password is " + password[i])
+...                                              loop=False
+...                                              break
+...                                     else:
+...                                             print("Incorrect Password!")
+...                                             break
+...                     if value:
+...                             print("Incorrect Username!")
+...
+login()
